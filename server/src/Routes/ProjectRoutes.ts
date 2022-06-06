@@ -5,7 +5,7 @@ const ProjectController = require('../controller/ProjectController');
 const ImageController = require('../controller/ImageController');
 
 // Uses user on req obj and projectid from the body.
-const UserCheck = require('../middleware/UserCheck');
+const UserCheck = require('../middleware/userCheck');
 
 router.get('/', UserCheck.checkLoggedIn, UserCheck.checkProject, ProjectController.all);
 router.get('/:projectid', UserCheck.checkLoggedIn, UserCheck.checkProject, ProjectController.one);

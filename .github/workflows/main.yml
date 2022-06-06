@@ -16,6 +16,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - run: pm2 delete jobby_client
+      - run: pm2 delete jobby_server
+
       - run: npm i
         working-directory: client
 
@@ -23,9 +26,6 @@ jobs:
         working-directory: client
         env:
           CI: false
-
-      - run: pm2 delete jobby_client
-      - run: pm2 delete jobby_server
 
       - run: pm2 start npm --name "jobby_client" -- run serve --spa
         working-directory: client
@@ -53,7 +53,6 @@ jobs:
           echo SPACES_NAME='${{ secrets.SPACES_NAME }}' >> .env
           echo SPACES_ENDPOINT='${{ secrets.SPACES_ENDPOINT }}' >> .env
           echo SPACE_BUCKET='${{ secrets.SPACE_BUCKET }}' >> .env
-
           cat .env
 
       - run: |

@@ -27,7 +27,7 @@ export const getProject = async () => {
 		const project = await axios.request({
 			withCredentials: true,
 			method: 'POST',
-			url: isDev() ? `${projectURLS.development}/api/users/projects` : `api/users/projects`,
+			url: isDev() ? `${projectURLS.development}/api/users/projects` : `/api/users/projects`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 			},

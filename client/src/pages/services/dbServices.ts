@@ -9,7 +9,7 @@ export const getTasks = async (projectid: number) => {
 		const tasks = await axios.request({
 			withCredentials: true,
 			method: 'GET',
-			url: isDev() ? `${projectURLS.development}/api/projects/${projectid}/tasks` : `api/projects/${projectid}/tasks`,
+			url: isDev() ? `${projectURLS.development}/api/projects/${projectid}/tasks` : `/api/projects/${projectid}/tasks`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 			},
@@ -27,7 +27,7 @@ export const getComments = async (projectid: number) => {
 		const tasks = await axios.request({
 			withCredentials: true,
 			method: 'GET',
-			url: isDev() ? `${projectURLS.development}/api/projects/${projectid}/comments?limit=10` : `api/projects/${projectid}/comments`,
+			url: isDev() ? `${projectURLS.development}/api/projects/${projectid}/comments?limit=10` : `/api/projects/${projectid}/comments`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 			},

@@ -9,7 +9,7 @@ export const getTaskData = async (taskid: number, projectid: number) => {
 		const task = await axios.request({
 			withCredentials: true,
 			method: 'POST',
-			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}/${taskid}` : `api/tasks/${projectid}/${taskid}`,
+			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}/${taskid}` : `/api/tasks/${projectid}/${taskid}`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 			},
@@ -27,7 +27,7 @@ export const getTaskComments = async (taskid: number, projectid: number) => {
 		const task = await axios.request({
 			withCredentials: true,
 			method: 'GET',
-			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}/${taskid}/comments` : `api/tasks/${projectid}/${taskid}/comments`,
+			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}/${taskid}/comments` : `/api/tasks/${projectid}/${taskid}/comments`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 			},
@@ -45,7 +45,7 @@ export const getTaskUpdates = async (taskid: number, projectid: number) => {
 		const task = await axios.request({
 			withCredentials: true,
 			method: 'GET',
-			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}/${taskid}/updates` : `api/tasks/${projectid}/${taskid}/updates`,
+			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}/${taskid}/updates` : `/api/tasks/${projectid}/${taskid}/updates`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 			},
@@ -63,7 +63,7 @@ export const getTaskMembers = async (taskid: number, projectid: number) => {
 		const task = await axios.request({
 			withCredentials: true,
 			method: 'POST',
-			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}/${taskid}/members` : `api/tasks/${projectid}/${taskid}/members`,
+			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}/${taskid}/members` : `/api/tasks/${projectid}/${taskid}/members`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 			},
@@ -82,7 +82,7 @@ export const removeMember = async (taskid: number, projectid: number, memberid: 
 		const task = await axios.request({
 			withCredentials: true,
 			method: 'PATCH',
-			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}/${taskid}/members` : `api/tasks/${projectid}/${taskid}/members`,
+			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}/${taskid}/members` : `/api/tasks/${projectid}/${taskid}/members`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 			},
@@ -103,7 +103,7 @@ export const getProjectMembers = async (projectid: number) => {
 		const task = await axios.request({
 			withCredentials: true,
 			method: 'GET',
-			url: isDev() ? `${projectURLS.development}/api/projects/${projectid}/members` : `api/projects/${projectid}/members`,
+			url: isDev() ? `${projectURLS.development}/api/projects/${projectid}/members` : `/api/projects/${projectid}/members`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 			},
@@ -122,7 +122,7 @@ export const deleteTask = async (taskid: number, projectid: number) => {
 		const task = await axios.request({
 			withCredentials: true,
 			method: 'DELETE',
-			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}/${taskid}` : `api/tasks/${projectid}/${taskid}`,
+			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}/${taskid}` : `/api/tasks/${projectid}/${taskid}`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 			},
@@ -141,7 +141,7 @@ export const addComment = async (taskId: number, projectId: number, comment: str
 		const task = await axios.request({
 			withCredentials: true,
 			method: 'POST',
-			url: isDev() ? `${projectURLS.development}/api/comments/add/${projectId}/${taskId}` : `api/comments/add`,
+			url: isDev() ? `${projectURLS.development}/api/comments/add/${projectId}/${taskId}` : `/api/comments/add`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 			},
@@ -164,7 +164,7 @@ export const changeTimes = async (taskId: number, projectid: number, timeLogged:
 		const task = await axios.request({
 			withCredentials: true,
 			method: 'POST',
-			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}/${taskId}/changeTimes` : `api/tasks/${projectid}/${taskId}/changeTimes`,
+			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}/${taskId}/changeTimes` : `/api/tasks/${projectid}/${taskId}/changeTimes`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 			},
@@ -186,7 +186,7 @@ export const addNewTaskData = async (projectid: number, taskData: any) => {
 		const task = await axios.request({
 			withCredentials: true,
 			method: 'POST',
-			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}` : `api/tasks/${projectid}`,
+			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}` : `/api/tasks/${projectid}`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 			},
@@ -207,7 +207,7 @@ export const updateTaskData = async (taskid: number, projectid: number, taskData
 		const task = await axios.request({
 			withCredentials: true,
 			method: 'PATCH',
-			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}/${taskid}` : `api/tasks/${projectid}/${taskid}`,
+			url: isDev() ? `${projectURLS.development}/api/tasks/${projectid}/${taskid}` : `/api/tasks/${projectid}/${taskid}`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 			},
@@ -228,7 +228,7 @@ export const searchAllMembers = async (string: string) => {
 		const task = await axios.request({
 			withCredentials: true,
 			method: 'POST',
-			url: isDev() ? `${projectURLS.development}/api/users/search` : `api/users/search`,
+			url: isDev() ? `${projectURLS.development}/api/users/search` : `/api/users/search`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 			},
@@ -252,7 +252,7 @@ export const updateUserImage = async (imageFile: File) => {
 		const userImage = await axios.request({
 			withCredentials: true,
 			method: 'POST',
-			url: isDev() ? `${projectURLS.development}/api/users/userimage` : `api/users/userimage`,
+			url: isDev() ? `${projectURLS.development}/api/users/userimage` : `/api/users/userimage`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 				'Content-Type': 'multipart/form-data',
@@ -277,7 +277,7 @@ export const createProject = async (projectData: any, imageFile: File) => {
 		const task = await axios.request({
 			withCredentials: true,
 			method: 'POST',
-			url: isDev() ? `${projectURLS.development}/api/projects/new` : `api/projects/new`,
+			url: isDev() ? `${projectURLS.development}/api/projects/new` : `/api/projects/new`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 				'Content-Type': 'multipart/form-data',
