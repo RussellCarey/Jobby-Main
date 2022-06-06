@@ -17,18 +17,48 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - run: npm i
+        working-directory: client
 
       - run: npm run build
-
+        working-directory: client
         env:
           CI: false
 
-      - run: pm2 delete jobby_client
+      # - run: pm2 delete jobby_client
+      # - run: pm2 delete jobby_server
 
       - run: pm2 start npm --name "jobby_client" -- run serve --spa
+        working-directory: client
+
+      - run: npm i
+        working-directory: server
+
+      - run: pm2 start npm --name "jobby_server" -- run start
+        working-directory: server
+
+      - run: |
+          cd server
+          touch .env
+          echo NODE_ENV='${{ secrets.NODE_ENV }}' >> .env
+          echo JWT_SECRET='${{ secrets.JWT_SECRET }}' >> .env
+          echo PROD_DB_USERNAME='${{ secrets.PROD_DB_USERNAME }}' >> .env
+          echo PROD_DB_PW='${{ secrets.PROD_DB_PW }}' >> .env
+          echo PROD_DB_PORT='${{ secrets.PROD_DB_PORT }}' >> .env
+          echo PROD_DB_HOST='${{ secrets.PROD_DB_HOST }}' >> .env
+          echo PROD_DB_NAME='${{ secrets.PROD_DB_NAME }}' >> .env
+          echo CA_CERT='${{ secrets.CA_CERT }}' >> .env
+          echo PORT='${{ secrets.PORT }}' >> .env
+          echo AWS_KEY='${{ secrets.AWS_KEY }}' >> .env
+          echo AWS_SECRET='${{ secrets.AWS_SECRET }}' >> .env
+          echo SPACES_NAME='${{ secrets.SPACES_NAME }}' >> .env
+          echo SPACES_ENDPOINT='${{ secrets.SPACES_ENDPOINT }}' >> .env
+          echo SPACE_BUCKET='${{ secrets.SPACE_BUCKET }}' >> .env
+
+          cat .env
 
       - run: |
           pm2 start jobby_client
+          pm2 start jobby_server
           pm2 save
           pm2 resurrect
           sudo service nginx restart

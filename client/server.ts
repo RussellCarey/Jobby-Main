@@ -11,6 +11,6 @@ app.get('*', function (req, res) {
 	res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(3002, () => {
+app.listen(3999, () => {
 	console.log('Client hosted on 3002!');
 });
