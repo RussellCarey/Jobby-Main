@@ -1,0 +1,12 @@
+
+Stylign to match the XD file..
+Sort out better login / auth to check user bettter.
+When app loads, loads first project but have the other projects in the menu bar.
+If no projects are on the user, then, show a create project screen, message that you need to be invited to a project or create one.
+On the task, have a deadline for the task that can be changed. this shows up on the calendar?
+On the project page, have the toption on the side abr to switch between comments and updates.
+Add priority colors.....
+Add user images? ....
+Add user control panel, change email, password, picture etc.... (later) (Settings icon??????)
+
+Remove the { id: x } from the user object on the request, just add a normal array..
