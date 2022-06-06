@@ -141,7 +141,7 @@ export const addComment = async (taskId: number, projectId: number, comment: str
 		const task = await axios.request({
 			withCredentials: true,
 			method: 'POST',
-			url: isDev() ? `${projectURLS.development}/api/comments/add/${projectId}/${taskId}` : `/api/comments/add`,
+			url: isDev() ? `${projectURLS.development}/api/comments/add/${projectId}/${taskId}` : `/api/comments/add/${projectId}/${taskId}`,
 			headers: {
 				jwt: `${Cookie.get('jwt')}`,
 			},
