@@ -39,17 +39,17 @@ AppDataSource.initialize()
 		app.use(express.urlencoded({ extended: false, parameterLimit: 10, limit: '10mb' }));
 
 		// Register express routes from defined application routes
-		app.use('/users', UserRoutes);
-		app.use('/auth', AuthRoutes);
-		app.use('/tasks', TaskRoutes);
-		app.use('/projects', ProjectRoutes);
-		app.use('/updates', UpdateRoutes);
-		app.use('/comments', CommentRoutes);
+		app.use('/api/users', UserRoutes);
+		app.use('/api/auth', AuthRoutes);
+		app.use('/api/tasks', TaskRoutes);
+		app.use('/api/projects', ProjectRoutes);
+		app.use('/api/updates', UpdateRoutes);
+		app.use('/api/comments', CommentRoutes);
 
 		// Catch any errors here. Below the routes.
 		app.use(ErrorController);
 
-		// start express server..
+		// start express server
 		app.listen(process.env.PORT, () => {
 			console.log(`Connected to server ${process.env.PORT}`);
 		});
