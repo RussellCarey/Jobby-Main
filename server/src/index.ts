@@ -2,8 +2,7 @@ import 'reflect-metadata';
 const dotenv = require('dotenv');
 dotenv.config();
 
-import { Request, NextFunction } from 'express';
-
+import isDev from './utils/isDev';
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
@@ -24,6 +23,16 @@ AppDataSource.initialize()
 		// create express app
 		const app = express();
 		app.use(bodyParser.json());
+
+		const whiteListDev = ['localhost:3000', 'http://localhost:3000', 'http://127.0.0.1:3000'];
+		const whiteListProd = ['https://jobby.russell-carey.com', 'https://jobby.russell-carey.com/api', 'https://www.jobby.russell-carey.com'];
+
+		app.use(
+			cors({
+				origin: isDev() ? whiteListDev : whiteListProd,
+				credentials: true,
+			})
+		);
 
 		app.use(
 			cors({
