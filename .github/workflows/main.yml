@@ -24,8 +24,8 @@ jobs:
         env:
           CI: false
 
-      # - run: pm2 delete jobby_client
-      # - run: pm2 delete jobby_server
+      - run: pm2 delete jobby_client
+      - run: pm2 delete jobby_server
 
       - run: pm2 start npm --name "jobby_client" -- run serve --spa
         working-directory: client
