@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
+import isDev from './utils/isDev';
 
 export const AppDataSource = new DataSource({
 	type: 'postgres',
@@ -8,7 +9,7 @@ export const AppDataSource = new DataSource({
 	username: process.env.PROD_DB_USERNAME,
 	password: process.env.PROD_DB_PW,
 	database: process.env.PROD_DB_NAME,
-	synchronize: true,
+	synchronize: isDev ? true : false,
 	logging: false,
 	entities: ['src/entity/**/*.ts'],
 	migrations: [__dirname + '/migration/**/*.ts'],
