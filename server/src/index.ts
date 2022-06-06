@@ -34,14 +34,6 @@ AppDataSource.initialize()
 			})
 		);
 
-		app.use(
-			cors({
-				credentials: true, // allow session cookie from browser to pass through
-				origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
-				methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
-			})
-		);
-
 		//
 		app.use(express.json({ limit: '10mb' }));
 		app.use(express.urlencoded({ extended: false, parameterLimit: 10, limit: '10mb' }));
