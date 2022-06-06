@@ -49,7 +49,7 @@ AppDataSource.initialize()
 		// Catch any errors here. Below the routes.
 		app.use(ErrorController);
 
-		// start express server
+		// start express server..
 		app.listen(process.env.PORT, () => {
 			console.log(`Connected to server ${process.env.PORT}`);
 		});
