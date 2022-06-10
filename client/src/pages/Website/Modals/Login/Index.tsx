@@ -46,10 +46,10 @@ const LoginModal: FunctionComponent<IModal> = ({ setShowModal }) => {
 				<SharedStyled.Cross onClick={() => setShowModal(null)}>X</SharedStyled.Cross>
 				<SharedStyled.Title>Login</SharedStyled.Title>
 				<SharedStyled.Text>Welcome back!</SharedStyled.Text>
-				<SharedStyled.Text>You can login to the dummy account automatically populated below to try the app!</SharedStyled.Text>
-				<SharedStyled.Input id="username" onChange={onChangeHandler} />
-				<SharedStyled.Input id="password" type="password" onChange={onChangeHandler} />
-				<SharedStyled.SubmitButton onClick={submitOnClick}>Submit</SharedStyled.SubmitButton>
+				<SharedStyled.Text>You can log into the dummy account automatically populated below to try the app!</SharedStyled.Text>
+				<SharedStyled.Input id="username" onChange={onChangeHandler} value={user.username} />
+				<SharedStyled.Input id="password" type="password" onChange={onChangeHandler} value={user.password} />
+				<SharedStyled.SubmitButton onClick={submitOnClick}>Let's go!</SharedStyled.SubmitButton>
 			</SharedStyled.ModalContainer>
 		</BackgroundDark>
 	);
