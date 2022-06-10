@@ -23,11 +23,6 @@ export default function Index() {
 
 	return (
 		<Styled.PageContainer>
-			<Styled.NotificationBar>
-				<p>Testing account to use:</p>
-				<p>Username: Dummy, Password: Dummy1122!!</p>
-			</Styled.NotificationBar>
-
 			{shownModal === 'signup' ? <SignupModal setShowModal={setShowModal} /> : null}
 			{shownModal === 'login' ? <LoginModal setShowModal={setShowModal} /> : null}
 			{shownModal === 'forgot' ? <ForgottenModal setShowModal={setShowModal} /> : null}

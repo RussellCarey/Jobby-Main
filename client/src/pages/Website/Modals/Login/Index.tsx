@@ -10,7 +10,10 @@ import Loading from '../../../../components/Loading/Index';
 const LoginModal: FunctionComponent<IModal> = ({ setShowModal }) => {
 	const navigate = useNavigate();
 	const [isLoading, setIsLoading] = useState<boolean>(false);
-	const [user, setNewUser] = useState<any>();
+	const [user, setNewUser] = useState<any>({
+		username: 'Dummy',
+		password: 'Dummy1122!!',
+	});
 	const { addMessageToModal } = useContext(ModalContext);
 
 	const submitOnClick = async () => {
@@ -43,6 +46,7 @@ const LoginModal: FunctionComponent<IModal> = ({ setShowModal }) => {
 				<SharedStyled.Cross onClick={() => setShowModal(null)}>X</SharedStyled.Cross>
 				<SharedStyled.Title>Login</SharedStyled.Title>
 				<SharedStyled.Text>Welcome back!</SharedStyled.Text>
+				<SharedStyled.Text>You can login to the dummy account automatically populated below to try the app!</SharedStyled.Text>
 				<SharedStyled.Input id="username" onChange={onChangeHandler} />
 				<SharedStyled.Input id="password" type="password" onChange={onChangeHandler} />
 				<SharedStyled.SubmitButton onClick={submitOnClick}>Submit</SharedStyled.SubmitButton>
