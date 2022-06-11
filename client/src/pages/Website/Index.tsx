@@ -33,7 +33,7 @@ export default function Index() {
 				<Styled.Subtitle>Your new project task management app.</Styled.Subtitle>
 				<Styled.ButtonContainer onClick={() => setShowModal('signup')}>Sign up</Styled.ButtonContainer>
 				<Styled.ButtonContainer onClick={() => setShowModal('login')}>Sign in</Styled.ButtonContainer>
-				<Styled.Text onClick={() => setShowModal('forgot')}>Forgotten your password?</Styled.Text>
+				<Styled.TextCursor onClick={() => setShowModal('forgot')}>Forgotten your password?</Styled.TextCursor>
 			</Styled.SideTextContainer>
 		</Styled.PageContainer>
 	);

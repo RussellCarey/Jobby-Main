@@ -55,6 +55,13 @@ export const Text = styled.p`
 	color: ${theme.colors.ui.brandDark};
 `;
 
+export const TextCursor = styled.p`
+	opacity: 50%;
+	font-size: ${theme.fonts.fontsizes.smallp};
+	color: ${theme.colors.ui.brandDark};
+	cursor: pointer;
+`;
+
 export const ButtonContainer = styled.button`
 	max-width: 50%;
 	border-radius: 20px;
