@@ -1,7 +1,7 @@
 # Jobby (In progress)
 
 A full stack, task / ticket manager based around JIRA.
-Note: Design files and project are currently in progress. Screenshots currently shown are in progress shots.
+Note: Currently in progress. Nearly completed.
 
 ![alt text](https://github.com/RussellCarey/Jobby-Client/raw/master/Design/ss1.png)
 
@@ -25,7 +25,7 @@ Note: Design files and project are currently in progress. Screenshots currently 
 - Styled Components
 - Nginx
 - Axios
-- More comming
+- etc..
 
 ## Languages
 
@@ -46,12 +46,11 @@ Users can:
 - More comming
 
 ![alt text](https://github.com/RussellCarey/Jobby-Client/raw/master/Design/ss2.png)
-![alt text](https://github.com/RussellCarey/Jobby-Client/raw/master/Design/ss3.png)
 ![alt text](https://github.com/RussellCarey/Jobby-Client/raw/master/Design/ss4.png)
 
 ## Status
 
-Project is: In progress. Recently started
+Project is: In progress. Nearly finished.
 
 ## Inspiration
 
