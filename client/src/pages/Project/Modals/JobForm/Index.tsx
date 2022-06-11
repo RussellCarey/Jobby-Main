@@ -90,7 +90,7 @@ const JobForm: FunctionComponent<IJobForm> = ({ type }) => {
 
 		addMessageToModal('Edited task was uploaded successfully.');
 		setIsLoading(false);
-		navigate(-1);
+		navigate('../', { state: true });
 	};
 
 	const submitNewTask = async () => {
@@ -101,7 +101,7 @@ const JobForm: FunctionComponent<IJobForm> = ({ type }) => {
 
 		addMessageToModal('New task created successfully.');
 		setIsLoading(false);
-		navigate(-1);
+		navigate('../', { state: true });
 	};
 
 	const removeTask = async () => {
@@ -110,9 +110,9 @@ const JobForm: FunctionComponent<IJobForm> = ({ type }) => {
 		const taskToDelete = await deleteTask(+params.taskid!, +params.projectid!);
 		if (taskToDelete.data.status !== 'success') return addMessageToModal('Could not removed task', 'error');
 
-		addMessageToModal('Task was removed successfully. ');
+		addMessageToModal('Task was removed successfully.');
 		setIsLoading(false);
-		navigate(-2);
+		navigate('../../', { state: true });
 	};
 
 	const onChangeHandler = (e: React.ChangeEvent) => {

@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import * as Styled from './styled';
 import ModalContext from '../../context/modal/ModalContext';
+import { useLocation } from 'react-router-dom';
 import { getTasks, getComments } from '../services/dbServices';
 import WebsiteContainer from '../../components/AppContainer/index';
 import Loading from '../../components/Loading/Index';
@@ -12,6 +13,7 @@ import CommentEnt from '../../entities/CommentEnt';
 
 const Dashboard = () => {
 	const { projectid } = useParams();
+	const location = useLocation();
 	const { addMessageToModal } = useContext(ModalContext);
 	const [loading, setLoading] = useState<boolean>(true);
 	const [tasks, setTasks] = useState<Array<TaskEnt>>();
@@ -29,8 +31,13 @@ const Dashboard = () => {
 	};
 
 	useEffect(() => {
+		// Check for added / at the end if the URL and remove it. Causes bugs..
+		const last = location.pathname.charAt(location.pathname.length - 1);
+		const sliced = location.pathname.slice(0, -1);
+		if (last === '/') location.pathname = sliced;
+
 		getAllItems();
-	}, []);
+	}, [location.state]);
 
 	return (
 		<WebsiteContainer>

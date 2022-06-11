@@ -2,7 +2,6 @@ import * as Styled from './styled';
 import { useState, useEffect, useContext } from 'react';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
-
 import AuthContext from '../../context/auth/AuthContext';
 import LoginModal from './Modals/Login/Index';
 import ForgottenModal from './Modals/Forgotten/Index';

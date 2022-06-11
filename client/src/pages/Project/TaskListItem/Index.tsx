@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react';
 import { theme } from '../../../theme/theme';
+import { useNavigate } from 'react-router-dom';
 import * as Styled from './styled';
 
 interface ITaskListItemProps {
@@ -9,6 +10,7 @@ interface ITaskListItemProps {
 }
 
 const TaskListItem: FunctionComponent<ITaskListItemProps> = ({ url, title, priority }) => {
+	const navigate = useNavigate();
 	const setColor = () => {
 		if (+priority === 0) return theme.colors.ui.brandLight;
 		if (+priority === 1) return theme.colors.ui.orange;
@@ -16,12 +18,10 @@ const TaskListItem: FunctionComponent<ITaskListItemProps> = ({ url, title, prior
 	};
 
 	return (
-		<Styled.ColorContainer color={setColor()}>
+		<Styled.ColorContainer color={setColor()} onClick={() => navigate(url)}>
 			<Styled.Container>
 				<Styled.TextContainer>
-					<Styled.StyledLink to={url}>
-						<Styled.Text>{title}</Styled.Text>
-					</Styled.StyledLink>
+					<Styled.Text>{title}</Styled.Text>
 				</Styled.TextContainer>
 			</Styled.Container>
 		</Styled.ColorContainer>

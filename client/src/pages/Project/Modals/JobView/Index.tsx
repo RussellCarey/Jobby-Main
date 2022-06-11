@@ -73,7 +73,7 @@ const JobView: FunctionComponent = () => {
 
 	useEffect(() => {
 		getAllItems();
-	}, []);
+	}, [location.state]);
 
 	// Miixin for the icons that are repeated
 	const Icons = () => {
