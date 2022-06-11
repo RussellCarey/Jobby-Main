@@ -12,6 +12,7 @@ interface IButton {
 	onClick: Function;
 }
 
+// Container
 const Container = styled.button`
 	background-color: ${(props: IButtonProps) => (props.light ? theme.colors.ui.brandLight : theme.colors.ui.black)};
 	padding: ${theme.spacing.space.xsmall} ${theme.spacing.space.medium};

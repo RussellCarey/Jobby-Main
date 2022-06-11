@@ -17,7 +17,7 @@ exports.all = catchAsync(async (request: Request, response: Response) => {
 	});
 });
 
-// One
+// Onesdoifjisdjifjsdofjidosjfiosjiofdj
 exports.one = catchAsync(async (request: Request, response: Response) => {
 	const comment = await CommentRepository.one(request.params.commentid);
 
