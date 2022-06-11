@@ -1,7 +1,7 @@
 # Jobby (In progress)
 
 A full stack, task / ticket manager based around JIRA.
-Note: Currently in progress. Nearly completed.
+Note: Currently in progress. Nearly completed. Some styling issues and a little rafactoring remains.
 
 ![alt text](https://github.com/RussellCarey/Jobby-Main/raw/master/Design/jobbygiff.gif)
 

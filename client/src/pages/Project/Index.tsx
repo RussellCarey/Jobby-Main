@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import * as Styled from './styled';
+import ModalContext from '../../context/modal/ModalContext';
 import { getTasks, getComments } from '../services/dbServices';
 import WebsiteContainer from '../../components/AppContainer/index';
 import Loading from '../../components/Loading/Index';
@@ -11,6 +12,7 @@ import CommentEnt from '../../entities/CommentEnt';
 
 const Dashboard = () => {
 	const { projectid } = useParams();
+	const { addMessageToModal } = useContext(ModalContext);
 	const [loading, setLoading] = useState<boolean>(true);
 	const [tasks, setTasks] = useState<Array<TaskEnt>>();
 	const [comments, setComments] = useState<Array<CommentEnt>>();
@@ -22,8 +24,7 @@ const Dashboard = () => {
 			setComments(comments.data.data);
 			setLoading(false);
 		} catch (error: any) {
-			// navigate('/dashboard');
-			console.log(error.response.message);
+			addMessageToModal('Error getting data', 'error');
 		}
 	};
 
