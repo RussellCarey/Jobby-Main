@@ -3,7 +3,7 @@
 A full stack, task / ticket manager based around JIRA.
 Note: Currently in progress. Nearly completed.
 
-![alt text](https://github.com/RussellCarey/Jobby-Client/raw/master/Design/ss1.png)
+![alt text](https://github.com/RussellCarey/Jobby-Main/raw/master/Design/jobbygiff.gif)
 
 ## Table of contents
 
